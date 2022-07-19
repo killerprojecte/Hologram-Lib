@@ -260,4 +260,13 @@ public interface IPackets {
             return packet;
         }
     }
+
+    class PacketV1_16 extends PacketsV1_9V1_18 {
+        @Override
+        public PacketContainerSendable destroyPacket(int entityID) {
+            PacketContainerSendable packet = newPacket(PacketType.Play.Server.ENTITY_DESTROY);
+            packet.getIntegerArrays().write(0, new int[] { entityID });
+            return packet;
+        }
+    }
 }
